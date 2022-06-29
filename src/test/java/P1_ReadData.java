@@ -38,9 +38,16 @@ public class P1_ReadData {
         System.out.println("=================================================");
 
 
-
-
         // SORU4: Talebeler tablosunda notu 70 ile 90 arasindaki kisilerin isimlerini listeleyiniz.
+        ResultSet veri4=st.executeQuery("select isim from talebeler where yazili_notu between 70 and 90");
+
+        while (veri4.next()){
+            System.out.printf("%-15.15s\n",veri4.getString(1));
+
+        }
+
+        System.out.println("=================================================");
+
 
         // SORU5: Talebeler tablosunda isminin 2. harfi e olan kisilerin veli_isimleri ile birlikte listeleyiniz.
 
