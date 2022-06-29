@@ -6,15 +6,39 @@ public class P1_ReadData {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/batch60_61?serverTimezone=UTC", "root", "elif.12345");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/batch59?serverTimezone=UTC", "root", "241143");
 
         Statement st = con.createStatement();
 
         // SORU1: Talebeler tablosundan tum kayitları listeleyiniz.
+        ResultSet veri1=st.executeQuery("select * from talebeler;");
+        while(veri1.next()){
+            System.out.printf("%-6d   %-15.15s   %-8s %6d  \n",veri1.getInt(1),veri1.getString(2),veri1.getString(3),veri1.getInt(4));
+        }
+        System.out.println("=================================================");
 
         // SORU2: Talebeler tablosunda notları 90 uzeri olan kayitları listeleyiniz.
 
+        ResultSet veri2=st.executeQuery("select * from talebeler where yazili_notu>=90;");
+
+        while (veri2.next()){
+            System.out.printf("%-6d   %-15.15s   %-8s %6d  \n",veri2.getInt(1),veri2.getString(2),veri2.getString(3),veri2.getInt(4));
+
+        }
+
+        System.out.println("=================================================");
+
         // SORU3: Talebeler tablosunda id'si 124 olan öğrencilerin tüm bilgilerini listeleyiniz.
+        ResultSet veri3=st.executeQuery("select * from talebeler where id=124");
+        while (veri3.next()){
+            System.out.printf("%-6d   %-15.15s   %-8s %6d  \n",veri3.getInt(1),veri3.getString(2),veri3.getString(3),veri3.getInt(4));
+
+        }
+
+        System.out.println("=================================================");
+
+
+
 
         // SORU4: Talebeler tablosunda notu 70 ile 90 arasindaki kisilerin isimlerini listeleyiniz.
 
