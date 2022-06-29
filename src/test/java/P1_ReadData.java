@@ -51,7 +51,13 @@ public class P1_ReadData {
 
         // SORU5: Talebeler tablosunda isminin 2. harfi e olan kisilerin veli_isimleri ile birlikte listeleyiniz.
 
+        ResultSet veri5=st.executeQuery("select isim,veli_isim from talebeler where isim like '_e%';");
 
+        while (veri5.next()){
+            System.out.printf("%-15.15s %-10s\n",veri5.getString(1),veri5.getString(2));
+
+        }
+        System.out.println("=================================================");
     }
 
     }
